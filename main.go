@@ -11,12 +11,16 @@ import (
 func main() {
     // Init a new client.
     client := revoltgo.Client{
-        Token: "bot token",
+        SelfBot: &revoltgo.SelfBot{
+            Id:           "session id",
+            SessionToken: "session token",
+            UserId:       "user id",
+        },
     }
 
     // Listen a on message event.
     client.OnMessage(func(m *revoltgo.Message) {
-        fmt.Print(m.content)
+        fmt.Print(m.Content)
     })
 
     // Start the client.
